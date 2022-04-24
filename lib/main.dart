@@ -20,7 +20,24 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Personal Expenses App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.green,
+        primarySwatch: Colors.green,
+        accentColor: Colors.amber,
+        fontFamily: 'Quicksand',
+        appBarTheme: AppBarTheme(textTheme: ThemeData.light().textTheme.copyWith(
+          titleLarge: TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        )),
+        textTheme: ThemeData.light().textTheme.copyWith(
+          titleSmall: TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        )
       ),
       home: MyHomePage(),
     );
@@ -37,18 +54,18 @@ class _MyHomePageState extends State<MyHomePage> {
   final amountController = TextEditingController();
 
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 65.5,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Buy Movie Tickets',
-      amount: 20,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 't1',
+    //   title: 'New Shoes',
+    //   amount: 65.5,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'Buy Movie Tickets',
+    //   amount: 20,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   void _addNewTransaction(String txTitle, double txAmount){
@@ -80,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Personal Expenses App'),
+        title: Text('Personal Expenses', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
         actions: [
           IconButton(
             onPressed: () => _startAddNewTransaction(context), 
