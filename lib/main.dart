@@ -71,8 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<Transaction> get _recentTransactions {
     return _userTransactions.where((tx){
-      return tx.date!.isAfter(
-        DateTime.now().subtract(
+      return tx.date!.isAfter( /* lấy về transactions của 7 ngày gần nhất(check có phải là transaction sau mốc tg đã trừ 7 ngày) */
+        DateTime.now().subtract(  /* Ngày hiện tại về trước 7 ngày*/
           Duration(days: 7),
         ),
       );
